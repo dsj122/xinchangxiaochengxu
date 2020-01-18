@@ -1,0 +1,35 @@
+<!--utils/components/recorder/recorder.wxml-->
+<view class='rec' wx:if="{{isShowRecIng}}">
+  <image class='recIng_image' mode='widthFix' src='../../image/a99.gif'></image>
+  <text>正在录音中</text>
+</view>
+
+<view class='rec' wx:if="{{isShowRecShort}}">
+  <image class='recShort_image' mode='widthFix' src='../../image/b14.png'></image>
+  <text>录音时间太短</text>
+</view>
+
+<view class='row' wx:if="{{isNull}}">
+  <view class='rec_Btn' bindlongpress='_recorderStart' bindtouchend='recorderStop'>
+    <image mode='widthFix' class='rec_Btn_bg' src='../../image/b07.png'></image>
+    <view class='rec_Btn_row'>
+      <image src='../../image/b06.png'></image>
+      <text>按住说话</text>
+    </view>
+  </view>
+  <text class='mask'>(限制60s以内)</text>
+</view>
+
+<view class='row' wx:else>
+  <view class='rec_Btn' bindtap='onPlay'>
+    <image mode='widthFix' class='rec_Btn_bg' src='../../image/baoxiu_btn_recording_pre.png'></image>
+    <view class='rec_Btn_row'>
+      <image class='wifi' mode='widthFix' src="{{isPlay?'/utils/image/b20.gif':'/utils/image/b10.png'}}" />
+      <text class='bold marign_right'>{{60-time}}″</text>
+    </view>
+  </view>
+  <view wx:if="{{isShowAgain}}" class='again_btn' bindtap='onAgain'>
+    <image src='../../image/b11.png'></image>
+    <text>点我重录</text>
+  </view>
+</view>

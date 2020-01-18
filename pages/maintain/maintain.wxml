@@ -1,0 +1,120 @@
+<!--pages/maintain/maintain.wxml-->
+<view wx:if="{{isShow}}">
+  <view class='rect' bindtap='closeRect' catchtouchmove='true'></view>
+  <view class='pj_display' catchtouchmove='true'>
+    <view class='pj_item' wx:for="{{pj_Arr}}" bindtap='onPj' data-item='{{item}}' wx:key="item" wx:index="index">
+      <text>{{item.item_name}}</text>
+    </view>
+  </view>
+</view>
+
+<view class='all'>
+  <contactBtn></contactBtn>
+  <view class='list Fifteen'>
+    <view class='item'>
+      <view class='item_left'>
+        <text><text class='red'>*</text> 预约日期：</text>
+      </view>
+      <text wx:if="{{info.date}}" class='pick_text' bindtap='onShowTimePick'> <text>{{info.dateArr[0]+'年'+info.dateArr[1]+'月'+info.dateArr[2]+'日'}}</text></text>
+      <text class='gray' class='gray pick_text' bindtap='onShowTimePick' wx:else>请选择预约日期</text>
+      <view class='item_right'>
+        <image class='icon_arrow' mode='widthFix' src='/utils/image/a06.png'></image>
+      </view>
+    </view>
+    <view class='item'>
+      <view class='item_left'>
+        <text><text class='red'>*</text> 保养项目：</text>
+      </view>
+      <text bindtap='showPj' wx:if="{{!info.project}}" class='gray pick_text'>请选择保养项目</text>
+      <text bindtap='showPj' wx:else class='pick_text'>{{info.project.item_name}}</text>
+      <view class='item_right'>
+        <image class='icon_arrow' mode='widthFix' src='/utils/image/a06.png'></image>
+      </view>
+    </view>
+    <view class='item'>
+      <view class='item_left'>
+        <text><text class='red'>*</text> 机型：</text>
+      </view>
+      <view class='pick_text' wx:if="{{info.model}}" bindtap='onShowPick' data-type='0'>{{info.model}}</view>
+      <view class='pick_text gray' wx:else bindtap='onShowPick' data-type='0'>请选择机型</view>
+      <view class='item_right'>
+        <image class='icon_arrow' mode='widthFix' src='/utils/image/a06.png'></image>
+      </view>
+    </view>
+    <view class='item'>
+      <view class='item_left'>
+        <text><text class='red'>*</text> 机身编号：</text>
+      </view>
+      <view class='pick_text' wx:if="{{info.number}}" bindtap='onShowPick' data-type='1'>{{info.number}}</view>
+      <view class='pick_text gray' wx:else bindtap='onShowPick' data-type='1'>请选择机身编号</view>
+      <view class='item_right'>
+        <image class='icon_arrow' mode='widthFix' src='/utils/image/a06.png'></image>
+      </view>
+    </view>
+    <view class='item'>
+      <view class='item_left'>
+        <text><text class='red'>*</text> 小时数：</text>
+      </view>
+      <input placeholder='请输入小时数' bindinput='hourInput' type='number' value='{{info.hour}}'></input>
+      <view class='item_right'>
+        <image class='icon_input' mode='widthFix' src='/utils/image/b01.png'></image>
+      </view>
+    </view>
+    <view class='item'>
+      <view class='item_left'>
+        <text><text class='red'>*</text> 省市：</text>
+      </view>
+      <view class='pick_text' wx:if="{{info.province_city}}" bindtap='onShowPick' data-type='2'>{{info.province_city}}</view>
+      <view class='pick_text gray' wx:else bindtap='onShowPick' data-type='2'>请选择省市</view>
+      <view class='item_right'>
+        <image class='icon_arrow' mode='widthFix' src='/utils/image/a06.png'></image>
+      </view>
+    </view>
+    <view class='item'>
+      <view class='item_left'>
+        <text><text class='red'>*</text> 详细地址：</text>
+      </view>
+      <input placeholder='请输入地点' class='item_textarea' bindinput='posInput' value='{{info.pos}}'></input>
+      <view class='item_right'>
+        <image class='icon_input' mode='widthFix' src='/utils/image/b01.png'></image>
+      </view>
+    </view>
+    <view class='item'>
+      <view class='item_left'>
+        <text><text class='red'>*</text> 联系人：</text>
+      </view>
+      <input placeholder='请输入姓名' bindinput='nameInput' value='{{info.name}}'></input>
+      <view class='item_right'>
+        <image class='icon_input' mode='widthFix' src='/utils/image/b01.png'></image>
+      </view>
+    </view>
+    <view class='item'>
+      <view class='item_left'>
+        <text><text class='red'>*</text> 联系电话：</text>
+      </view>
+      <input placeholder='请输入电话' bindinput='telInput' type='number' value='{{info.tel}}'></input>
+      <view class='item_right'>
+        <image class='icon_input' mode='widthFix' src='/utils/image/b01.png'></image>
+      </view>
+    </view>
+    <view class='item border_none'>
+      <view class='item_left'>
+        <text> 其他需求：</text>
+      </view>
+      <recorder bindshowAuth="showAuth" bindonAgain="onAgain" isShowAgain="{{true}}" setSrc="{{info.recorderurl}}" bindrecorderStop="recorderStop"></recorder>
+    </view>
+    <textarea wx:if="{{!isShow&&!isShowModel&&!isShowNumber && showtext}}" class='desc_input' value='{{info.desc}}' bindinput='descInput' placeholder='更多需求描述'></textarea>
+    <!-- <view class='btn_sub' bindtap='checkAuth'>提交</view> -->
+    <button  class='btn_sub' bindtap='checkAuth' disabled="{{subtn}}">提交</button>
+  </view>
+</view>
+
+<diy_picker inputText="请填写机型" isShowNotFound="{{shownotFound}}" isShowPicker="{{isShowModel}}" bindsure="sure_model" bindcancle="cancl_model" scrollType="normal" listData="{{app_info.model}}" titleText="请选择机型" rectBottom=" bottom:220rpx;" bindconfirm='modelConfirm'></diy_picker>
+
+<diy_picker inputText="请填写机身编号" isShowNotFound="{{shownotFound}}" isShowPicker="{{isShowNumber}}" bindsure="sure_number" bindcancle="cancl_number" scrollType="normal" listData="{{app_info.number}}" titleText="请选择机身编号" rectBottom=" bottom:220rpx;" bindconfirm='numberConfirm'></diy_picker>
+
+<authPopup isShow="{{isShowAuth}}" bindhideAuth="hideAuth"></authPopup>
+
+<diy_picker isTime="{{true}}" isMin="{{true}}" isShowPicker="{{isShowTime}}" keyWordsOfShow="name" defaultPickData="{{defaultPickData}}" bindsure="sure" bindcancle="cancl" scrollType="link" titleText="请选择时间" isShowNotFound="{{fal}}"></diy_picker>
+
+<diy_picker isShowPicker="{{isShowCity}}" keyWordsOfShow="name" defaultPickData="{{city}}" bindsure="sure_city" bindcancle="cancl_city" scrollType="link" listData="{{cityListData}}" titleText="请选择地址"></diy_picker>

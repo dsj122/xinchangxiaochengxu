@@ -1,0 +1,13 @@
+var filters = {
+  toFix: function(value) {
+    if (!value) {
+      return;
+    }
+    num = Number(value);
+    return num.toFixed(2)
+  }
+}
+
+module.exports = {
+  toFix: filters.toFix
+}

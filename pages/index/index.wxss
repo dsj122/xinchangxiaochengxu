@@ -1,0 +1,106 @@
+/**index.wxss**/
+
+._all {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.title {
+  padding-left: 35rpx;
+  border-left: 4rpx solid #ffcd11;
+  margin-bottom: 40rpx;
+  font-size: 27rpx;
+  font-weight: bold;
+}
+
+/* 功能服务 */
+
+.f_ser {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20rpx;
+}
+
+.f_ser_item{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  margin-bottom: 20rpx;
+}
+
+.f_ser_item image{
+  width: 690rpx;
+  margin: 0 auto;
+}
+
+.f_ser_item_area{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  z-index: 1;
+  left: 90rpx;
+}
+
+.f_ser_item_area_title{
+  margin-bottom: 16rpx;
+  color: white;
+}
+
+.f_ser_item_area_desc{
+  margin-bottom: 20rpx;
+  color: white;
+}
+
+.f_ser_item_area_btn{
+  padding:6rpx;
+  background-color: #FFCD11;
+  border-radius: 15rpx;
+  max-width: 120rpx;
+  text-align: center;
+}
+
+/* 更多服务 */
+.m_ser{
+  width: 690rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin:0 auto 62rpx;
+}
+
+.m_item{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.m_item image{
+  width: 220rpx;
+  height: 220rpx;
+}
+
+.m_item_row{
+  display: flex;
+  align-items: center;
+  position: absolute;
+}
+
+.m_item_row image{
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 20rpx;
+}
+
+.server{
+  margin: 0 auto;
+}
+
+.red{
+  color: #AF0E0E;
+}
+
+
+

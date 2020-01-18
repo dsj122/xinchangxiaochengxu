@@ -1,0 +1,44 @@
+<!--pages/myEquip/myEquip.wxml-->
+<tabbar id='tabbar'></tabbar>
+
+<view class='rect' catchtouchmove='ture' bindtap='onDownLoad' wx-if="{{isDownLoad}}" ></view>
+<view class='all'>
+  <text class='download Twelve' bindtap='onDownLoad' >温馨提示：如需查看更多设备数据，<text class='und'>请下载信昌APP</text></text>
+  <view catchtouchmove='ture' class='qrcode' bindlongtap='opentQr' wx:if="{{isDownLoad}}">
+    <image src='{{qr_img}}' mode='widthFix' ></image>
+    <text  class='Fourteen bold'>扫二维码，即可下载信昌APP</text>
+  </view>
+  <contactBtn wx:if="{{!isDownLoad}}" ></contactBtn>
+  <view class='list'>
+    <view class='item' wx:for="{{list}}" wx:key="item" wx:index="index">
+      <view class='item_tile'>
+        <image src='/utils/image/e01.png'></image>
+        <text class='bold Thirteen'>基本信息</text>
+      </view>
+       <view class='item_desc'>
+          <view class='item_detail'>
+            <view class='item_detail_column'>
+              <text class='twenty_bottom' >小时数：{{item.total_hour}}小时</text>
+              <text>月耗油量：{{item.total_fuel?item.total_fuel + 'L' :'0'}}</text>
+            </view>
+             <view class='item_detail_column'>
+              <text class='twenty_bottom' >月工作小时：{{item.mon_hour?item.mon_hour:0}}小时</text>
+              <text>交机日期：{{item.delivery_time}}</text>
+            </view>
+          </view>
+          <view class='item_pos'>
+            <image src='/utils/image/e03.png' mode='widthFix' ></image>
+            <text class='Twelve' >位置：{{item.location}}</text>
+          </view>
+          <view class='line'></view>
+          <view class='item_model'>
+            <view class='item_model_left'>
+              <text class='twenty_bottom' >机型：{{item.model}} </text>
+              <text>机身编号：{{item.serial_number}} </text>
+            </view>
+            <view class='item_model_right' bindtap='onBuy' data-url='{{item.yz_url}}'>选购匹配零件</view>
+          </view>
+        </view>
+    </view>
+  </view>
+</view>

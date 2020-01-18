@@ -1,0 +1,75 @@
+/* pages/discount/discount.wxss */
+page{
+  background-color: #F5F5F5;
+}
+
+.list{
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.item{
+  margin-bottom: 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.item image{
+  width: 690rpx;
+  height: 222rpx;
+}
+
+.item_desc{
+  margin-top: 30rpx;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 630rpx;
+}
+
+.desc_top{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.desc_top_left{
+  display: flex;
+  flex-direction: column;
+  font-size: 29rpx;
+}
+
+.desc_top_right{
+  position:relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.desc_top_right image{
+  width: 120rpx;
+  height: 46rpx;
+}
+
+.desc_top_right text{
+  font-size: 23rpx;
+  color: #E6BB18;
+  position: absolute;
+}
+
+.date{
+  font-size: 25rpx;
+  color: #999999;
+  margin-top: 40rpx;
+}
+
+.twenty_bottom{
+  margin-bottom: 22rpx;
+}
+

@@ -1,0 +1,261 @@
+/* pages/pay/pay.wxss */
+
+page {
+  background-color: #f5f5f5;
+}
+
+.row{
+  margin-top: 30rpx;
+}
+
+.top {
+  width: 100%;
+  height: 92rpx;
+  background-color: white;
+  border-top: 1rpx solid #eee;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  z-index: 999;
+}
+
+.top_arr {
+  margin-left: 80rpx;
+  width: 500rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.top_item {
+  display: flex;
+  flex-direction: column;
+  padding-top: 30rpx;
+  align-items: center;
+}
+
+.top_item_pick {
+  margin-top: 20rpx;
+  width: 40rpx;
+  height: 4rpx;
+  background-color: #ffcd11;
+}
+
+.top_item_no {
+  padding-top: 20rpx;
+  width: 40rpx;
+  height: 4rpx;
+}
+
+.nav_icon {
+  width: 40rpx;
+  height: 36rpx;
+  margin: 30rpx 0rpx;
+  padding-left: 30rpx;
+  border-left: 1rpx solid #eee;
+  position: absolute;
+  right: 30rpx;
+}
+
+.type {
+  padding: 40rpx 30rpx 60rpx 30rpx;
+  background-color: white;
+  position: absolute;
+  top: 94rpx;
+  z-index: 999;
+}
+
+.type_all {
+  width: 690rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.type_title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.type_title_close {
+  width: 30rpx;
+  height: 18rpx;
+}
+
+.type_Arr {
+  width: 720rpx;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 30rpx;
+}
+
+.type_item {
+  padding: 10rpx 26rpx;
+  background-color: #f5f5f5;
+  margin-top: 20rpx;
+  border-radius: 24rpx;
+  color: #666;
+  margin-right: 25px;
+}
+
+.type_item_pick {
+  color: #333;
+  background-color: #ffcd11;
+}
+
+.date {
+  width: 690rpx;
+  margin: 30rpx auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: #666;
+  align-items: center;
+  letter-spacing: 2rpx;
+}
+
+.date_icon {
+  width: 26rpx;
+  height: 24rpx;
+  margin-right: 10rpx;
+}
+.date_icon_down{
+  height: 10rpx;
+  width: 18rpx;
+  margin-left: 6rpx;
+  margin-bottom: 2rpx;
+}
+.list {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  padding-bottom: 100rpx;
+}
+
+.item {
+  width: 690rpx;
+  margin: 0 auto;
+  margin-bottom: 20rpx;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border: 1px solid #EEEEEE;
+}
+
+.item_top {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: center;
+  height: 100rpx;
+}
+
+.item_top_img {
+  width: 100%;
+  height: 100rpx;
+  z-index: -1;
+  position: absolute;
+}
+
+.item_top_row {
+  width: 630rpx;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item_top_row image {
+  width: 42rpx;
+}
+
+.item_bottom {
+  width: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.item_bottom_all {
+  width: 630rpx;
+  margin: 0 auto;
+  padding: 50rpx 30rpx 40rpx 30rpx;
+}
+
+.item_money {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+}
+
+.item_info {
+  width: 100%;
+  margin-top: 40rpx;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 30rpx;
+  border-bottom: 1px solid #eee;
+}
+
+.item_info_item {
+  display: flex;
+  flex-direction: row;
+  margin-top: 30rpx;
+  font-size: 27rpx;
+}
+
+.gray {
+  color: #999;
+}
+
+.item_time {
+  margin-top: 30rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.row {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.item_btnArr {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 290rpx;
+}
+
+.btn {
+  display: flex;
+  width: 130rpx;
+  height: 50rpx;
+  font-size: 25rpx;
+  border-radius: 10rpx;
+  align-items: center;
+  justify-content: center;
+}
+
+.close_btn {
+  color: #999;
+  background-color: white;
+  border: 1px solid #999;
+}
+
+.pay_btn {
+  color: #333;
+  border: 1px solid #ffcd11;
+  background-color: #ffcd11;
+}

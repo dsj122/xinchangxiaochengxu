@@ -1,0 +1,11 @@
+<!--utils/components/authPopup/authPopup.wxml-->
+<view class='popup' wx:if="{{isShow}}" >
+  <text class='popup_tilte'>请重新授权</text>
+  <view class='popup_btnArr'>
+   <text class='popup_btn' bindtap='close' >取消</text>
+   <view class='popup_btn' bindtap='close' >
+   打开授权
+    <button  open-type='openSetting' >aaaaaaaa</button>
+   </view>
+  </view>
+</view>

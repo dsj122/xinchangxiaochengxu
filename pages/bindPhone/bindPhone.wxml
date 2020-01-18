@@ -1,0 +1,31 @@
+<!--pages/bindPhone/bindPhone.wxml-->
+<view class='all'>
+  <view class='display'>
+    <text class='title'>欢迎来到信昌机器</text>
+    <text class='title_p1'>请绑定您的手机号码</text>
+    <view class='all_input'>
+      <view class='row'>
+        <image mode="widthFix" class='img' src='../../utils/image/a01.png'></image>
+        <view class='main_row'>
+          <text class='text_86'>+86</text>
+          <input class='tel_input' bindinput='telInput' maxlength="11" type='number' placeholder='请输入手机号码' value='{{tel}}'></input>
+        </view>
+      </view>
+      <view class='row'>
+        <image mode='widthFix' class='img' src='../../utils/image/a02.png'></image>
+        <view class='main_row'>
+          <input  bindinput='codeInput' placeholder='请输入短信验证码' value='{{code}}'></input>
+          <view class='btn_obtain' bindtap='onObtain' >
+            <text wx:if="{{!time}}">获取验证码</text>
+            <text wx:else>重获({{time}})s</text>
+            <image mode='widthFix' src="{{!time?'../../utils/image/a03.png':'../../utils/image/a05.png'}}"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view bindtap='onConfirm' class='btn_confirm'>确认</view>
+    <text class='desc' bindtap='toAgreement' >
+      绑定手机即注册，表示您同意 <text class='red'>《用户协议》</text>
+    </text>
+  </view>
+</view>

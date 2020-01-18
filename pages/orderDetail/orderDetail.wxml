@@ -1,0 +1,78 @@
+<!--pages/orderDetail/orderDetail.wxml-->
+<view class='all Fifteen' wx:if="{{data.type==1}}">
+  <image class='icon' mode='widthFix' src="{{data.state==1?success_img:fail_img}}"></image>
+  <view class='info'>
+    <view class='row'>机型：{{data.model}}
+    </view>
+    <view class='row'>机身号：{{data.serial_number}}
+    </view>
+    <view class='row'>小时数：已工作{{data.total_time}}小时
+    </view>
+    <view class='row'>省市：{{data.province_name + data.city_name}}
+    </view>
+    <view class='row'>详情地址：{{data.address}}
+    </view>
+    <view class='row'>联系人：{{data.client_name}}
+    </view>
+    <view class='row'>联系电话：{{data.phone}}
+    </view>
+    <view class='row no_bottom'>是否可以工作：{{data.is_work==1?'是':'否'}}
+    </view>
+  </view>
+  <view class='detail'>
+    <view class='title'>
+      <text>故障描述：</text>
+      <recorder isShowAgain="{{false}}" wx:if="{{data.fault_description}}" setSrc="{{imgUrl}}{{data.fault_description}}"></recorder>
+    </view>
+    <view class='desc'>
+      {{data.remark}}
+    </view>
+    <view class='column' wx:if="{{data.image.length>0}}">
+      <view class='title'>图片：</view>
+      <view class='imgArr'>
+        <image bindtap='onOpent' data-src='{{item.url}}' mode='scaleToFill' src='{{item.url}}' class='img' wx:for="{{data.image}}" wx:key="item" wx:index="index"></image>
+      </view>
+    </view>
+    <view class='column' wx:if="{{data.video.length>0}}">
+      <view class='title'>视频：</view>
+      <view class='imgArr'>
+        <video class='img' src='{{data.video[0].url}}'>
+        </video>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class='all Fifteen' wx:if="{{data.type==2}}">
+  <image class='icon' mode='widthFix' src="{{data.state==1?success_img:fail_img}}"></image>
+  <view class='info'>
+    <view class='row'>预约日期：{{data.appointment_time}}
+    </view>
+    <!-- <view class='row'>保养项目：{{pj_Arr[data.project].item_name}} -->
+    <view class='row'>保养项目：{{data.project_name}}
+    </view>
+    <view class='row'>机型：{{data.model}}
+    </view>
+    <view class='row'>机身号：{{data.serial_number}}
+    </view>
+    <view class='row'>小时数：已工作{{data.total_time}}小时
+    </view>
+    <view class='row'>省市：{{data.province_name + data.city_name}}
+    </view>
+    <view class='row'>详情地址：{{data.address}}
+    </view>
+    <view class='row'>联系人：{{data.client_name}}
+    </view>
+    <view class='row'>联系电话：{{data.phone}}
+    </view>
+  </view>
+  <view class='detail'>
+    <view class='title'>
+      <text>其他需求：</text>
+      <recorder isShowAgain="{{false}}" wx:if="{{data.fault_description}}" setSrc="{{data.fault_description}}"></recorder>
+    </view>
+    <view class='desc'>
+      {{data.remark}}
+    </view>
+  </view>
+</view>

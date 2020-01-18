@@ -1,0 +1,116 @@
+/* pages/bindPhone/bindPhone.wxss */
+.display{
+  display: flex;
+  flex-direction: column;
+  width: 620rpx;
+}
+
+.title{
+  font-size: 35rpx;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 8rpx;
+  margin-top: 110rpx;
+}
+
+.title_p1{
+  font-size: 23rpx;
+  color: #999999;
+}
+
+.all_input{
+  margin-top: 120rpx;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  font-size: 29rpx;
+}
+
+.row{
+  width: 100%;
+  display: flex;
+  margin-bottom: 40rpx;
+  position: relative;
+}
+
+.img{
+  margin-top: 8rpx;
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 30rpx;
+}
+
+.main_row{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-bottom: 30rpx;
+  border-bottom: 2rpx solid #EEEEEE;
+  width: 560rpx;
+}
+
+.text_86{
+  padding-right: 26rpx;
+  border-right: 2rpx solid #FFCD11;
+}
+
+.tel_input{
+  margin-left: 26rpx;
+}
+
+.btn_obtain{
+  display: flex;
+  position: absolute;
+  right: 0;
+  justify-content: center;
+  align-items: center;
+  font-size: 23rpx;
+  font-weight: bold;
+}
+
+.btn_obtain text{
+  color: white;
+}
+
+.btn_obtain image{
+  width: 150rpx;
+  height: 54rpx;
+}
+
+.btn_obtain text{
+  position: absolute;
+}
+
+.btn_confirm{
+  width: 100%;
+  height: 80rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: white;
+  font-size: 31rpx;
+  font-weight: bold;
+  margin-top: 90rpx;
+}
+
+.desc{
+  font-size: 21rpx;
+  margin: 0 auto;
+  margin-top: 50rpx;
+}
+
+.red{
+  color: #FF1111;
+}
+
+
+
+
+
+
+
+
+
+
+

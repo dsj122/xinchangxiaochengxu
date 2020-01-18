@@ -1,0 +1,102 @@
+/* utils/components/recorder/recorder.wxss */
+.row{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 21rpx;
+  z-index: 140;
+}
+
+.rec_Btn{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rec_Btn_bg{
+  width: 220rpx;
+  height: 44rpx;
+}
+
+.rec_Btn_row{
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rec_Btn_row image{
+  width: 16rpx;
+  height: 22rpx;
+  margin-right: 10rpx;
+}
+
+.rec_Btn_row text{
+  color: black;
+}
+
+.mask{
+  margin-left: 22rpx;
+  color: #999999;
+}
+
+.wifi{
+  width: 16rpx;
+  height: 22rpx;
+  margin-right: 10rpx;
+}
+
+.rec{
+  position: fixed;
+  top: 330rpx;
+  left: 210rpx;
+  width: 340rpx;
+  height: 320rpx;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.8;
+  color: white;
+  font-size: 29rpx;
+  z-index: 140;
+}
+
+.recIng_image{
+  width: 170rpx;
+  height: 170rpx;
+  margin-bottom: 24rpx;
+}
+
+.recShort_image{
+  width: 30rpx;
+  height: 142rpx;
+  margin-bottom: 20rpx;
+}
+
+
+.marign_right{
+  margin-right: 60rpx;
+}
+
+.again_btn{
+  margin-left: 40rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.again_btn image{
+  width: 24rpx;
+  height: 24rpx;
+  margin-right: 12rpx;
+}
+
+.again_btn text{
+  font-size: 21rpx;
+  color: #666666;
+}
+

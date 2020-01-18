@@ -1,0 +1,16 @@
+<!--pages/canvas/canvas.wxml-->
+<view class='input'>
+
+  <canvas class="canvas" id="canvas" canvas-id="canvas" disable-scroll="true" bindtouchstart="canvasStart" bindtouchmove="canvasMove" bindtouchend="canvasEnd" touchcancel="canvasEnd" binderror="canvasIdErrorCallback"></canvas>
+
+  <view class='btn_arr'>
+    <view class='reSign' bindtap="cleardraw">
+      <text class='absolute'>重签</text>
+      <image class='btn_image' mode='widthFix' src='../../image/g07.png'></image>
+    </view>
+    <view class='confirm' bindtap="getimg">
+      <text class='absolute'>确认</text>
+      <image class='btn_image' mode='widthFix' src='../../image/g08.png'></image>
+    </view>
+  </view>
+</view>

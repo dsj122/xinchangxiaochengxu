@@ -1,0 +1,41 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/perfectInfo/perfectInfo",
+    "pages/pay/pay",
+    "pages/bindPhone/bindPhone",
+    "pages/comfirmPay/comfirmPay",
+    "pages/auth/auth",
+    "pages/guarantee/guarantee",
+    "pages/discount/discount",
+    "pages/quotation/quotation",
+    "pages/myEquip/myEquip",
+    "pages/agreement/agreement",
+    "pages/maintain/maintain",
+    "pages/evaluate/evaluate",
+    "pages/question/question",
+    "pages/speed/speed",
+    "pages/checkOrder/checkOrder",
+    "pages/orderDetail/orderDetail",
+    "pages/sign/sign",
+    "pages/myEquipDetail/myEquipDetail",
+    "pages/webviews/webviews"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "信昌一站通",
+    "navigationBarTextStyle": "black"
+  },
+  "usingComponents": {
+    "contactBtn": "utils/components/contactBtn/contactBtn",
+    "diy_picker": "utils/components/picker/picker",
+    "tabbar": "utils/components/tabbar/tabbar",
+    "recorder": "utils/components/recorder/recorder",
+    "authPopup": "utils/components/authPopup/authPopup"
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wx8d49e38e79c5416b"
+  ],
+  "sitemapLocation": "sitemap.json" 
+}

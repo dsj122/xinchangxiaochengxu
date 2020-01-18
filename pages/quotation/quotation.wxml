@@ -1,0 +1,75 @@
+<wxs module="filters" src="../../utils/components/filters.wxs"></wxs>
+<contactBtn></contactBtn>
+
+<view class='all'>
+  <view class='top'>
+    <view class='number number_1' wx:if="{{no_confirmNum>0}}">
+      <view class='number_bg'></view>
+      <text>{{no_confirmNum}}</text>
+    </view>
+    <view bindtap='changeTop' data-index='{{index}}' class="top_item" wx:for="{{top}}" wx:index="index" wx:key="item">
+      <text class="{{top_index==index?'top_item_pick bold':''}}" >{{item.name}}</text>
+      <view class="num" wx:if="{{item.num>0}}">
+        {{item.num}}
+      </view>
+    </view>
+
+  </view>
+  <view class='list'>
+    <view wx:if="{{list.length>0}}" wx:for="{{list}}" wx:key="item" wx:index="index">
+      <view class='item'>
+        <image class='del' bindtap='deleter' data-id='{{item.id}}' wx:if="{{item.offer_status == 1}}" data-item="{{item}}" mode='widthFix' src='../../utils/image/g01.png'></image>
+        <view class='des'>
+          <text>报价单号：{{item.offer_number}}</text>
+          <text>类型：{{item.quote_name}}</text>
+          <text class='bottom_none'>内容：{{item.content}}</text>
+        </view>
+        <view class='item_row'>
+          <text class='item_price'>￥{{filters.toFix(item.price)}}</text>
+          <view class='item_btnArr'>
+            <view class='btn_detail' bindtap='detail' data-item='{{item}}'>查看详情</view>
+            <view class='btn_sign' bindtap='input' data-index='{{index}}' data-item='{{item}}' wx:if="{{item.offer_status==1}}">
+              <image mode='widthFix' src="{{sign_no}}"></image>
+              <text class="white">签名确认</text>
+            </view>
+            <view class='btn_sign' data-index='{{index}}' data-item='{{item}}' wx:else>
+              <image mode='widthFix' src="{{sign_yes}}"></image>
+              <text>签名已确认</text>
+            </view>
+          </view>
+        </view>
+        <view class='line'></view>
+        <view class='contacts'>
+          <image mode='widthFix' class='human' src='../../utils/image/g02.png'></image>
+          <text> <text class='padding_right'>报价员：{{item.name}} </text>
+          <text class='padding_left'>电话:{{item.mobile}}</text> </text>
+          <image mode='widthFix' bindtap='call' data-tel='{{item.mobile}}' class='iphone' src='../../utils/image/g03.png'></image>
+        </view>
+      </view>
+    </view>
+    <view class='none_dispaly' wx:if="{{list.length<=0&&isShowNone}}">
+      <view class='none'>
+        <image src='../../utils/image/g09.png'></image>
+        <text>暂无数据，若需要查看您的数据</text>
+        <text>请联系<text class='tel_color' >400-0336-320</text></text>
+      </view>
+    </view>
+  </view>
+  <view class='rect' wx:if="{{isRectShow}}" bindtap='close' catchtouchmove='true'></view>
+  <image class='img' wx:if="{{isImgShow}}" src='{{item_imgSrc}}'></image>
+  <view class='input' wx:if="{{isShow}}" catchtouchmove='true'>
+
+    <canvas class="canvas" id="canvas" canvas-id="canvas" disable-scroll="true" bindtouchstart="canvasStart" bindtouchmove="canvasMove" bindtouchend="canvasEnd" touchcancel="canvasEnd" binderror="canvasIdErrorCallback"></canvas>
+
+    <view class='btn_arr'>
+      <view class='reSign' bindtap="cleardraw">
+        <text class='absolute'>重签</text>
+        <image class='btn_image' mode='widthFix' src='/utils/image/g07.png'></image>
+      </view>
+      <view class='confirm' bindtap="saveImg">
+        <text class='absolute'>确认</text>
+        <image class='btn_image' mode='widthFix' src='/utils/image/g08.png'></image>
+      </view>
+    </view>
+  </view>
+</view>

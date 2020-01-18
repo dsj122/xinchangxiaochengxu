@@ -1,0 +1,250 @@
+/* pages/quotation/quotation.wxss */
+@import "/utils/components/canvas/canvas.wxss";
+
+.img {
+  margin: 0 auto;
+  z-index: 130;
+  position: fixed;
+  top: 400rpx;
+  background-color: white;
+  width: 690rpx;
+  height: 350rpx;
+}
+
+page {
+  background-color: #f5f5f5;
+}
+
+.none_dispaly {
+  position: absolute;
+  top: 400rpx;
+}
+
+.none {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 29rpx;
+  letter-spacing: 5rpx;
+  line-height: 45rpx;
+}
+
+.none image {
+  width: 277rpx;
+  height: 182rpx;
+  margin-bottom: 52rpx;
+}
+
+.tel_color {
+  color: #af0e0e;
+  font-weight: bold;
+}
+
+.top {
+  margin-top: 2rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  /* justify-content: space-around; */
+  background-color: white;
+  position: relative;
+  text-align: center;
+}
+
+.top_item {
+  width: 33%;
+  display: flex;
+  justify-content: center;
+  font-size: 27rpx;
+  position: relative;
+  padding-top: 40rpx;
+}
+.top_item .num{
+  position: absolute;
+  width: 38rpx;
+  height: 38rpx;
+  line-height: 38rpx;
+  border-radius: 50%;
+  background-color: #f11;
+  z-index: 99;
+  color: white;
+  right: 56rpx;
+  top: 20rpx;
+  font-size: 18rpx;
+}
+.top_item_pick {
+  border-bottom: 4rpx solid black;
+}
+
+.top_item text {
+  padding-bottom: 30rpx;
+}
+
+.number {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 20rpx;
+  height: 20rpx;
+  line-height: 20rpx;
+  border-radius: 50%;
+  background-color: #f11;
+  z-index: 99;
+}
+
+.number text {
+  color: white;
+  font-size: 15rpx;
+  font-weight: bold;
+}
+
+.number_1 {
+  position: absolute;
+  top: 35rpx;
+  right: 335rpx;
+}
+
+.number_2 {
+  position: absolute;
+  top: 40rpx;
+  right: 80rpx;
+}
+
+.list {
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.item {
+  background-color: white;
+  width: 630rpx;
+  padding: 40rpx 32rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 20rpx;
+  position: relative;
+}
+
+.del {
+  display: block;
+  position: absolute;
+  top: 40rpx;
+  right: 30rpx;
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.des {
+  font-size: 27rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.des text {
+  margin-bottom: 20rpx;
+}
+
+.item_row {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20rpx;
+}
+
+.item_price {
+  color: #f11;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.item_btnArr {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 21rpx;
+}
+
+.btn_detail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120rpx;
+  height: 48rpx;
+  background-color: white;
+  border-radius: 7rpx;
+  border: 1rpx solid #ccc;
+  margin-right: 20rpx;
+  color: #999;
+}
+
+.btn_sign {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.btn_sign image {
+  width: 120rpx;
+  height: 50rpx;
+}
+
+.btn_sign text {
+  position: absolute;
+}
+
+.btn_Ysign {
+  color: white;
+  position: absolute;
+}
+
+.btn_Nsign {
+  position: absolute;
+  color: black;
+}
+
+.line {
+  width: 630rpx;
+  height: 2rpx;
+  background-color: #eee;
+  margin: 30rpx 0;
+}
+
+.contacts {
+  display: flex;
+  position: relative;
+  align-items: center;
+  color: #666;
+  font-size: 21rpx;
+  letter-spacing: 5rpx;
+}
+
+.human {
+  width: 22rpx;
+  height: 24rpx;
+  margin-right: 22rpx;
+}
+
+.iphone {
+  width: 26rpx;
+  height: 26rpx;
+  position: absolute;
+  right: 0rpx;
+}
+
+.padding_right {
+  padding-right: 15rpx;
+  border-right: 2rpx solid #666;
+}
+
+.padding_left {
+  padding-left: 21rpx;
+}

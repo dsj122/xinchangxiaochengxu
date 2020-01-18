@@ -1,0 +1,7 @@
+<!--pages/auth/auth.wxml-->
+  <view class='content'>
+    <!-- <image class='img_auth' src='{{imgUrl}}img_authorization.png'></image> -->
+    <view class='title'>信昌一站通 申请获得以下权限</view>
+    <view class='tip'>获得您的公开信息（昵称、头像等）</view>
+    <button open-type='getUserInfo' class='btn_auth' bindgetuserinfo="bindGetUserInfo">进入授权</button>
+  </view>

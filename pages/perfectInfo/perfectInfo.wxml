@@ -1,0 +1,35 @@
+<!--pages/perfectInfo/perfectInfo.wxml-->
+<view class='all_input'>
+  <view class='row'>
+    <text>真实姓名：</text>
+    <input placeholder='请输入您的真实姓名' value='{{name}}' bindinput='nameInput'></input>
+  </view>
+  <view class='row'>
+    <text>地址：</text>
+    <text  class='picker gray' wx:if="{{city[0]==''}}" bindtap='showPick' >请选择您的地址</text>
+    <text  class='picker ' wx:else bindtap='showPick' >{{city[0]}}-{{city[1]}}-{{city[2]}}</text>
+    <image class='arrow_img' mode='widthFix' src='../../utils/image/a06.png'></image>
+  </view>
+  <view class='row'>
+    <text>单位名称：</text>
+    <input placeholder='请输入您的单位名称' value='{{company}}' bindinput='companyInput'></input>
+  </view>
+  <view class='row border_none'>
+    <text>电话：</text>
+    <text type='number'>{{tel}}</text>
+  </view>
+</view>
+
+<view class='btn' bindtap='onSubmission'>提交</view>
+
+<diy_picker
+	isShowPicker="{{isShow}}"
+	keyWordsOfShow="name"
+	defaultPickData="{{defaultPickData}}"
+	bindsure="sure"
+	bindcancle="cancl"
+	scrollType="link"
+	listData="{{listData}}"
+  titleText="请选择地址"
+  isShowNotFound="{{false}}"
+></diy_picker>

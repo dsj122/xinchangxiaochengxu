@@ -1,0 +1,28 @@
+<!--pages/evaluate/evaluate.wxml-->
+<view class='all'>
+  <view class='list'>
+    <view class='item' wx:for="{{list}}" wx:key="item">
+      <text class='title'>类型：{{item.title}}</text>
+      <view class='line'></view>
+      <view class='desc'>
+        <view class='desc_left'>
+          <!-- <text class='twenty_bottom'>{{item.tempFirName}}：{{item.tempFirValue}}</text>
+          <text>{{item.tempSecName}}：{{item.tempSecValue}}</text> -->
+          <text class='twenty_bottom'>机型：{{item.model}}</text>
+          <text>机身编号：{{item.serial_number}}</text>
+        </view>
+        <view class='btn' bindtap='onItem' data-id='{{item.id}}'>
+          <image src="../../utils/image/g04.png" mode="widthFix"></image>
+          <text>填写评价</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='none_dispaly' wx:if="{{list.length<=0&&!isGet}}">
+    <view class='none'>
+      <image src='../../utils/image/g09.png'></image>
+      <text>暂无数据，若需要查看您的数据</text>
+      <text>请联系<text class='tel_color' >400-0336-320</text></text>
+    </view>
+  </view>
+</view>

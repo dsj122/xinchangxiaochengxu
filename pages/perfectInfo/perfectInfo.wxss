@@ -1,0 +1,64 @@
+/* pages/perfectInfo/perfectInfo.wxss */
+page{
+  background-color: #F5F5F5;
+}
+
+.gray{
+  color: #999999;
+}
+
+.all_input{
+  margin-top: 30rpx;
+  background-color: white;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.row{
+  width: 690rpx;
+  display: flex;
+  font-size: 29rpx;
+  align-items: center;
+  padding: 40rpx 0;
+  border-bottom: 2rpx solid #EEEEEE;
+  position: relative;
+}
+
+.row text{
+  min-width: 160rpx;
+}
+
+.border_none{
+  border: none;
+}
+
+.arrow_img{
+  position: absolute;
+  right: 0;
+  width: 16rpx;
+  height: 26rpx;
+}
+
+.picker {
+  font-size: 28rpx;
+  width: 550rpx;
+}
+
+.btn{
+  width: 620rpx;
+  height: 80rpx;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 31rpx;
+  font-weight: bold;
+  margin: 0 auto;
+  margin-top: 110rpx;
+  color: white;
+}
+

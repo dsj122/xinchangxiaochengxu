@@ -1,0 +1,4 @@
+<!--pages/myEquipDetail/myEquipDetail.wxml-->
+<web-view src="{{url}}" ></web-view>
+<!-- <web-view src="https://shop41094076.youzan.com/"></web-view> -->
+<!-- <web-view src="https://www.youzan.com/" ></web-view> -->

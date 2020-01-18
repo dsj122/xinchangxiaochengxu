@@ -1,0 +1,50 @@
+<!--picker/picker.wxml-->
+<view class="full-box {{isOpen?'cur':''}}">
+  <!--<view class="modal" bindtap="tapModal"></view>-->
+  <view class="picker">
+    <view class="picker-header" style="{{pickerHeaderStyle}}">
+      <view bindtap="cancle">
+        <text class='gary Fifteen' style="{{cancelStyle}}">{{cancelText}}</text>
+      </view>
+      <text class='Fifteen' style="{{titleStyle}}">{{titleText}}</text>
+      <view class='gary' bindtap="sure">
+        <text class='Fifteen' style="{{sureStyle}}">{{sureText}}</text>
+      </view>
+    </view>
+    <picker-view value="{{value}}" wx:if="{{!isTime}}" class="picker-content" bindpickstart="_bindpickstart" bindchange="_bindChange" bindpickend="_bindpickend" indicator-style="{{indicatorStyle}}" mask-style="{{maskStyle}}">
+      <view class='pick_rect' style='{{rectBottom}}'></view>
+      <picker-view-column wx:for="{{columnsData}}" wx:key="{{index}}">
+        <view wx:for="{{item}}" wx:for-item="itemIn" class="picker-line" wx:key="{{index}}">
+          <text class="line1" style="{{chooseItemTextStyle}}">{{isUseKeywordOfShow?itemIn[keyWordsOfShow]:itemIn}}</text>
+        </view>
+      </picker-view-column>
+    </picker-view>
+
+    <picker-view value="{{pick_time}}" bindchange="time_bindChange" wx:else class="picker-content" indicator-style="{{indicatorStyle}}" mask-style="{{maskStyle}}">
+      <view class='pick_rect' style='{{rectBottom}}'></view>
+      <picker-view-column>
+        <view wx:for="{{list[0]}}" wx:key="item" class='picker-line'>{{item}}</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view wx:for="{{list[1]}}" wx:key="item" class='picker-line'>{{item}}</view>
+      </picker-view-column>
+      <picker-view-column wx:if="{{!hideDay}}">
+        <view  wx:for="{{list[2]}}" wx:key="item" class='picker-line'>{{item}}</view>
+      </picker-view-column>
+    </picker-view>
+
+    <view class='not_found' wx:if="{{isShowNotFound}}">
+      <text bindtap='showInput'>没有找到？可以 <text class='not_red'>手动填写</text></text>
+    </view>
+  </view>
+</view>
+<view class="full-box {{isShowInput?'cur':''}}" catchtouchmove='true'>
+  <view class='pick_input_display' wx:if="{{isShowInput}}" catchtouchmove='true'>
+    <view class='pick_input' catchtouchmove='true'>
+      <image bindtap='close' src='../../image/b15.png'></image>
+      <text class='pick_input_title'>{{inputText}}</text>
+      <textarea catchtouchmove='true' placeholder='请填写' bindinput='input' value='{{manualInput}}'></textarea>
+      <view class='pick_input_btn' bindtap='confirm'>确认</view>
+    </view>
+  </view>
+</view>

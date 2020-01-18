@@ -1,0 +1,43 @@
+<!--pages/question/question.wxml-->
+<view class='all'>
+  <image class='topImage' src='../../utils/image/d02.png' mode="widthFix"></image>
+  <view class='desc'>
+    <text class='desc_title'>尊敬的客服：</text>
+    <text class='twenty_bottom'>您好！非常感谢您对信昌机器的支持和信任，我们将一如既往从服务客户的角度出发，做好支持工作。</text>
+    <text>为进一步提高服务质量，持续服务水平，特发此问卷，真诚希望能得到您的宝贵意见和建议。</text>
+    <view class='line'></view>
+  </view>
+  <view class='info'>
+    <text wx:for="{{data.order}}" wx:key="item">{{item.name}}：{{item.value}}</text>
+  </view>
+  <view class='list'>
+    <view class='item' class="{{data.question_detail.length-1==index?'none_bottom':''}}" wx:for="{{data.question_detail}}" wx:key="item" wx:index="index">
+      <view class='item_display' wx:if="{{item.type==1}}">
+        <text class='item_title' decode='true' wx:if="{{(index+1)==2}}">{{(index+1)>=10?(index+1):'0'+(index+1)}}&nbsp;&nbsp;{{item.question}}</text>
+        <text class='item_title' decode='true' wx:else>{{(index+1)>=10?(index+1):'0'+(index+1)}}&nbsp;&nbsp;{{item.question}}<text class='red'>*</text></text>
+        <view class='item_very'>
+          <text>非常不满意</text>
+          <text>非常满意</text>
+        </view>
+        <view class='pick_arr'>
+          <view data-value='{{_item}}' data-index='{{index}}' data-value='{{_item+1}}' class="pick_item {{data.question_detail[index].answer==_item+1?'yellow':''}}" wx:for="{{data.score}}" bindtap='pick' wx:for-index="_index" wx:for-item="_item" wx:key="_item">
+            {{_item+1}}
+          </view>
+        </view>
+      </view>
+      <view class='item_display' bindlongtap='setIndex' bindtap='setIndex' data-index='{{index}}' wx:else>
+        <view class='item_title' decode='true' wx:if="{{item.require==2}}">{{(index+1)>=10?(index+1):'0'+(index+1)}}{{item.question}}<text decode='true'>&nbsp;&nbsp;</text>
+          <recorder bindshowAuth="showAuth" bindonAgain="onAgain" isShowAgain="{{true}}" setSrc="{{item.recordid}}" bindrecorderStop="recorderStop"></recorder>
+        </view>
+        <view class='item_title' decode='true' wx:else>{{(index+1)>=10?(index+1):'0'+(index+1)}}{{item.question}}
+          <text class='red'>*</text><text decode='true'>&nbsp;&nbsp;</text>
+          <recorder bindshowAuth="showAuth"  bindonAgain="onAgain" isShowAgain="{{true}}" setSrc="{{imgUrl}}{{item.recordid}}" bindrecorderStop="recorderStop"></recorder>
+        </view>
+        <textarea class='input' placeholder='请填写' value='{{desc}}' data-index='{{index}}' bindinput='input'></textarea>
+      </view>
+    </view>
+  </view>
+  <view class='btn' bindtap='onSub'>提交</view>
+</view>
+
+<authPopup isShow="{{isShowAuth}}" bindhideAuth="hideAuth"></authPopup>

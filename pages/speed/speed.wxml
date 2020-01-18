@@ -1,0 +1,80 @@
+<!--pages/speed/speed.wxml-->
+<view class='all'>
+  <contactBtn></contactBtn>
+  <view class='top'>
+    <view class='number number_2' wx:if="{{workNum>0}}">
+      <view class='number_bg'></view>
+      <text>{{workNum}}</text>
+    </view>
+    <view bindtap='changeTop' data-index='{{item.value}}' class="{{top_index==item.value?'top_item_pick bold':'top_item'}}" 
+    wx:for="{{top}}" wx:index="index" wx:key="item">
+      {{item.name}}
+      <view class="num" wx:if="{{item.num>0}}">
+        {{item.num}}
+      </view>
+    </view>
+  </view>
+  <view style='width:100%;min-height:1050rpx;' animation="{{ani1}}" bindtouchmove='touchMove' bindtouchstart='touchStart' bindtouchend='touchEnd'>
+    <view class='list'>
+      <view class='width' wx:if="{{list.length>=1}}" wx:for="{{list}}" wx:key="item">
+        <view class='item'>
+          <view class='item_title'>
+            <image mode='widthFix' src='../../utils/image/c01.png'></image>
+            <text>服务项目：{{item.order_reason	}}</text>
+          </view>
+          <view class='line'></view>
+          <view class='item_positon'>
+            <view class='item_display'>
+              <view class='item_line'></view>
+              <view wx:if="{{!item.order_work_time}}" class='item_oneline'></view>
+              <view wx:elif="{{!item.put_finish_order_time}}" class='item_twoline'></view>
+              <view wx:else class='item_threeline'></view>
+              <image class='item_bigPoint' src='{{b_pointImg}}' mode='widthFix'></image>
+              <image class="{{item.order_work_time?'item_bigPoint':'item_point'}}" src="{{item.order_work_time?b_pointImg:pointImg}}" mode='widthFix'></image>
+              <image class="{{item.put_finish_order_time?'item_bigPoint':'item_point'}}" src="{{item.put_finish_order_time?b_pointImg:pointImg}}" mode='widthFix'></image>
+            </view>
+          </view>
+          <view class='item_arr'>
+            <view class='item_coloum yellow'>
+              <image mode='widthFix' src='../../utils/image/c03.png'></image>
+              <text class='item_coloum_text'>已报修</text>
+              <text>{{item.order_create_time}}</text>
+            </view>
+            <!-- <view class="item_coloum {{item.type>=1?'yellow':''}}">
+              <image mode='widthFix' src='{{item.type>=1?workImg:no_workImg}}'></image>
+              <text class='item_coloum_text'>{{item.type>=1?'工作中':'派工'}}</text>
+              <text>{{item.type>=1?item.order_work_time:''}}</text>
+            </view> -->
+             <view class="item_coloum {{item.order_work_time?'yellow':''}}">
+              <image mode='widthFix' src='{{item.order_work_time?workImg:no_workImg}}'></image>
+              <text class='item_coloum_text'>{{item.order_work_time?'工作中':'派工'}}</text>
+              <text>{{item.order_work_time?item.order_work_time:''}}</text>
+            </view>
+            <!-- <view class="item_coloum {{item.type>=2?'yellow':''}}">
+              <image mode='widthFix' src='{{item.type>=2?finishImg:no_finishImg}}'></image>
+              <text class='item_coloum_text'>{{item.type>=2?'已完工':'完工'}}</text>
+              <text>{{item.type>=2?item.put_finish_order_time:''}}</text>
+            </view> -->
+            <view class="item_coloum {{item.put_finish_order_time?'yellow':''}}">
+              <image mode='widthFix' src='{{item.put_finish_order_time?finishImg:no_finishImg}}'></image>
+              <text class='item_coloum_text'>{{item.put_finish_order_time?'已完工':'完工'}}</text>
+              <text>{{item.put_finish_order_time?item.put_finish_order_time:''}}</text>
+            </view>
+          </view>
+          <view class='line'></view>
+          <view class='item_bottom'>
+            <text>机型：{{item.model}}</text>
+            <text>机身编号：{{item.serial_number}}</text>
+          </view>
+        </view>
+      </view>
+      <view class='none_dispaly' animation="{{ani1}}" bindtouchmove='touchMove' bindtouchstart='touchStart' bindtouchend='touchEnd' wx:if="{{list.length<=0&&!isGet}}">
+        <view class='none'>
+          <image src='../../utils/image/g09.png'></image>
+          <text>暂无数据，若需要查看您的数据</text>
+          <text>请联系<text class='tel_color' >400-0336-320</text></text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

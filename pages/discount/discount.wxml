@@ -1,0 +1,19 @@
+<contactBtn></contactBtn>
+<view class="list">
+  <view class='item' wx:for="{{list}}" wx:key="item" wx:index="index">
+    <image src='../../utils/image/h01.png'></image>
+    <view class='item_desc'>
+      <view class='desc_top'>
+        <view class='desc_top_left'>
+          <text class='twenty_bottom'>机型：{{item.model}}</text>
+          <text>优惠名称：{{item.name}}</text>
+        </view>
+        <view class='desc_top_right' data-url='{{item.url}}' bindtap='onDetail'>
+          <image src='../../utils/image/h02.png'></image>
+          <text>查看详情</text>
+        </view>
+      </view>
+        <view class='date'>截至日期：{{item.end_time}}</view>
+    </view>
+  </view>
+</view>

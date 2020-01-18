@@ -1,0 +1,51 @@
+<view class="tabBar">
+  <!-- <view class='nav_rect' bindtap='toBindPhone' wx:if="{{!isBind}}"></view> -->
+  <!-- <view class='nav_rect' bindtap='toAuth' wx:if="{{!isAuth}}"></view> -->
+
+  <block wx:for="{{list}}" wx:for-item="item" wx:for-index="index" wx:key="tabBar">
+    <view class="tabBar-item" wx:if="{{isBind&&isAuth}}" bindtap='on' data-index='{{index}}'>
+      <navigator wx:if="{{item.current==0&&!item.popup}}" url="{{item.pagePath}}" open-type='reLaunch'>
+        <view>
+          <image class="icon" src='{{item.iconPath}}'></image>
+        </view>
+        <view class="{{item.current== 1 ? 'tabBartext' :''}}">{{item.text}}</view>
+      </navigator>
+      <view wx:else>
+        <view>
+          <image class="icon" src='{{item.current== 1 ?item.selectedIconPath:item.iconPath}}'></image>
+        </view>
+        <view class="{{item.current== 1 ? 'tabBartext' :''}}">{{item.text}}</view>
+      </view>
+    </view>
+    <view class='tabBar-item' wx:if="{{!isAuth}}">
+      <view>
+        <image class="icon" src='{{item.current== 1 ?item.selectedIconPath:item.iconPath}}'></image>
+      </view>
+      <view class="{{item.current== 1 ? 'tabBartext' :''}}">{{item.text}}</view>
+      <view class='nav_rect' bindtap='toAuth' wx:if="{{!item.popup}}"></view>
+      <view class='nav_rect' bindtap='on' wx:else data-index="{{index}}" ></view>
+    </view>
+    <view class='tabBar-item' wx:elif="{{!isBind}}">
+      <view>
+        <image class="icon" src='{{item.current== 1 ?item.selectedIconPath:item.iconPath}}'></image>
+      </view>
+      <view class="{{item.current== 1 ? 'tabBartext' :''}}">{{item.text}}</view>
+      <view class='nav_rect' bindtap='toBindPhone' wx:if="{{!item.popup}}" ></view>
+      <view class='nav_rect' bindtap='on' wx:else data-index="{{index}}"></view>
+    </view>
+  </block>
+</view>
+<view class='rect' catchtouchmove='true' wx:if="{{isShow}}"></view>
+<view class='popup' catchtouchmove='true' wx:if="{{isShow}}">
+  <view class='btn_arr'>
+    <view class='t_item' bindtap='toQuo'>
+      <image mode='widthFix' src='../../image/f02.png'></image>
+      <text>询价查看</text>
+    </view>
+    <view class='t_item' bindtap='toDis'>
+      <image mode='widthFix' src='../../image/f03.png'></image>
+      <text>我的优惠</text>
+    </view>
+  </view>
+  <image class='close' bindtap='onClose' src='../../image/f01.png' mode='widthFix'></image>
+</view>

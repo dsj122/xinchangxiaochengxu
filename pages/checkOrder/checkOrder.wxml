@@ -1,0 +1,46 @@
+<!--pages/checkOrder/checkOrder.wxml-->
+<view class='all'>
+  <view class='top'>
+    <view class='top_arr Fifteen'>
+      <view class='top_item' bindtap='changeTop' data-index='{{item.value}}' wx:for="{{showTypeArr}}" wx:key="item" wx:index="index">
+        <text class="{{type==item.value?'pick_top':''}}">{{item.name}}</text>
+        <view wx:if="{{type==item.value}}" class='pick_line'></view>
+      </view>
+    </view>
+  </view>
+  <view class='list' wx:key="item" wx:index="index" bindtouchmove='touchMove' bindtouchstart='touchStart' bindtouchend='touchEnd'>
+    <view wx:for="{{list}}" >
+      <view class='item'>
+        <view class='title Fourteen'>
+          <view class='row'>
+            <image class='icon' src="{{item.type==1?'/utils/image/xina01.png':'/utils/image/xina02.png'}}" mode='widthFix'></image>
+            <text class='bold'>{{item.type==1?'报修':'保养'}}(机身号：{{item.serial_number}})</text>
+          </view>
+          <text class="{{item.state==1?'gray':'red'}}">{{item.state==1?'已处理':'未处理'}}</text>
+        </view>
+        <view class='line'></view>
+        <!-- <view class='detail Fifteen' wx:if="{{item.type==1}}">
+          <text class='g_color'>项目：</text>
+          <text>{{item.project_name || '无数据'}}</text>
+        </view> -->
+        <view class='detail Fifteen'>
+          <text class='g_color'>客户名称：</text>
+          <text>{{item.client_name}}</text>
+        </view>
+        <view class='detail Fifteen'>
+          <text class='g_color'>联系电话：</text>
+          <text>{{item.phone}}</text>
+        </view>
+        <view class='detail Fifteen'>
+          <text class='g_color'>机型：</text>
+          <text>{{item.model}}</text>
+        </view>
+        <view class='l_line'></view>
+        <view class='bottom'>
+          <text class='gray Thirteen'>提交日期：{{item.create_time}}</text>
+          <view bindtap='onDetail' data-item='{{item}}' class='btn Twelve'>查看详情</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

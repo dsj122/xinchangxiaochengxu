@@ -1,0 +1,57 @@
+<!--index.wxml-->
+<!-- 导航栏 -->
+<!-- <import src="../../utils/components/template/template.wxml"/>
+<template is="tabBar" data="{{tabBar:bindData.tabBar}}"/> -->
+
+<tabbar id='tabbar'></tabbar>
+<view class='_all'>
+  <text class='title'>功能服务</text>
+  <view class='f_ser'>
+    <view class='f_ser'>
+      <view class='f_ser_item' data-type='0' bindtap='onBtn'>
+        <image src='{{img.guarImg}}' mode='widthFix'></image>
+        <view class='f_ser_item_area'>
+          <text class='f_ser_item_area_title Seventeen bold'>维修报修</text>
+          <text class='f_ser_item_area_desc Eleven'>故障报修，快人一步</text>
+          <text class='f_ser_item_area_btn bold Eleven'>立即进入</text>
+        </view>
+      </view>
+      <view class='f_ser_item' data-type='1' bindtap='onBtn'>
+        <image src='{{img.mainImg}}' mode='widthFix'></image>
+        <view class='f_ser_item_area'>
+          <text class='f_ser_item_area_title Seventeen bold'>预约保养</text>
+          <text class='f_ser_item_area_desc Eleven'>专业保养，至关重要</text>
+          <text class='f_ser_item_area_btn bold Eleven'>立即进入</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <text class='title'>更多服务</text>
+  <view class='m_ser'>
+    <view class='m_item' bindtap='onBtn' data-type='2'>
+      <image mode='widthFix' src='{{img.assessImg}}'></image>
+      <view class='m_item_row'>
+        <image mode='widthFix' src='/utils/image/a09.png'></image>
+        <text class='Thirteen'>服务进度</text>
+      </view>
+    </view>
+    <view class='m_item' bindtap='onBtn' data-type='3'>
+      <image mode='widthFix' src='{{img.assessImg}}'></image>
+      <view class='m_item_row'>
+        <image mode='widthFix' src='/utils/image/a10.png'></image>
+        <text class='Thirteen'>服务评价</text>
+      </view>
+    </view> <view class='m_item' bindtap='onBtn' data-type='4'>
+      <image mode='widthFix' src='{{img.assessImg}}'></image>
+      <view class='m_item_row'>
+        <image mode='widthFix' src='/utils/image/xinf03.png'></image>
+        <text class='Thirteen'>服务需求</text>
+      </view>
+    </view>
+  </view>
+  <view class='server relative'>
+    <text class='Twelve'>有问题？<text class='red'>找客服</text> </text>
+    <button class='contact' open-type='contact'>aaaaaa</button>
+  </view>
+</view>
+<view style='width:100%;height:100rpx;'></view>

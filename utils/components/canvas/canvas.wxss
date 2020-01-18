@@ -1,0 +1,64 @@
+/* pages/canvas/canvas.wxss */
+
+.input {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 120;
+  width: 100%;
+  /* height: 540rpx;
+   */
+  height: 100%;
+  position: fixed;
+  bottom: 0;
+}
+
+.canvas {
+  width: 690rpx;
+  /* height: 350rpx;
+   */
+  height: 100%;
+  border: 1rpx solid #000;
+  box-sizing: border-box;
+  margin: 30rpx 0 40rpx;
+  background-color: white;
+}
+
+.btn_arr {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 31rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+}
+
+.reSign {
+  color: white;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.confirm {
+  color: black;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.btn_image {
+  width: 300rpx;
+  height: 80rpx;
+}

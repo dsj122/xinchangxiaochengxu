@@ -1,0 +1,43 @@
+/* utils/components/contactBtn/contactBtn.wxss */
+
+.btn {
+  z-index: 9999;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.bg {
+  width: 120rpx;
+  height: 120rpx;
+}
+
+.middle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  margin-top: -3rpx;
+}
+
+.contact {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+.middle text {
+  font-size: 22rpx;
+  font-weight: bold;
+}
+
+.icon {
+  width: 34rpx;
+  height: 38rpx;
+}

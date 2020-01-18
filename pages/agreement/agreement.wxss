@@ -1,0 +1,7 @@
+/* pages/agreement/agreement.wxss */
+.display{
+  width: 680rpx;
+  max-width: 680rpx;
+  font-size: 28rpx;
+  margin: 0 auto;
+}

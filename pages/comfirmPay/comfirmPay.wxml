@@ -1,0 +1,98 @@
+<!--pages/comfirmPay/comfirmPay.wxml-->
+<wxs module="filters" src="../../utils/components/filters.wxs"></wxs>
+
+<view class='all' wx:if="{{showType==0}}">
+  <view class='money'>
+    <text class='gray Twelve'>付款金额</text>
+    <text class='red Twenty-five bold'>￥{{data.price?filters.toFix(data.price):''}}</text>
+  </view>
+  <view class='info Fourteen'>
+    <view class='item'>
+      <text>付款人：</text>
+      <!-- <text>{{data.province}}</text> -->
+      <text wx:if="{{data.real_name}}">{{data.real_name}}</text>
+      <text wx:else bindtap='showInput'>请输入真实姓名</text>
+    </view>
+    <view class='item'>
+      <text class='gray'>省份：</text>
+      <text>{{data.province}}</text>
+    </view>
+    <view class='line'></view>
+    <view class='item'>
+      <text class='gray'>收款公司：</text>
+      <text>{{data.company}}</text>
+    </view>
+    <view class='line'></view>
+    <view class='item'>
+      <text class='gray'>款项类别：</text>
+      <text>{{data.category_name}}</text>
+    </view>
+    <view class='line'></view>
+    <view class='item'>
+      <text class='gray'>发票类型：</text>
+      <text wx:if="{{data.invoice_type==1}}">普通发票</text>
+      <text wx:elif="{{data.invoice_type == 2}}">增值税专用发票</text>
+    </view>
+    <view class='detail Thirteen'>
+      <view class='detail_item'>
+        <text class='gray' decode='true'>税&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号：</text>
+        <text>{{data.tax_number}}</text>
+      </view>
+      <view class='detail_item'>
+        <text class='gray'>抬头名称：</text>
+        <text>{{data.tax_header}}</text>
+      </view>
+      <view class='column' wx:if="{{data.invoice_type==2}}">
+        <view class='detail_item'>
+          <text class='gray'>单位地址：</text>
+          <text>{{data.tax_address}}</text>
+        </view>
+        <view class='detail_item'>
+          <text class='gray'>电话号码：</text>
+          <text>{{data.tax_phone}}</text>
+        </view>
+        <view class='detail_item'>
+          <text class='gray'>开户银行：</text>
+          <text>{{data.tax_bank}}</text>
+        </view>
+        <view class='detail_item'>
+          <text class='gray'>银行账户：</text>
+          <text>{{data.tax_account}}</text>
+        </view>
+      </view>
+    </view>
+    <view class='line'></view>
+    <view class='item'>
+      <text class='gray'>创建时间：</text>
+      <text>{{data.create_time}}</text>
+    </view>
+  </view>
+  <view class='btnArr bold Fifteen'>
+    <view bindtap='onBack' class='btn close_btn'>取消交易</view>
+    <view bindtap='onPay' class='btn pay_btn'>去付款</view>
+  </view>
+</view>
+<view class='all' wx:else>
+  <image class='icon' src='{{showType==1?success_icon:fail_icon}}' mode='widthFix'></image>
+  <text class='result_text Fifteen bold'>{{showType==1?'支付成功!':'支付失败!'}}</text>
+  <view wx:if='{{showType==1}}' class='Fifteen'>
+    <view class='btn close_btn center' bindtap='back'>返回缴费中心</view>
+  </view>
+  <view wx:if='{{showType==2}}' class='Fifteen'>
+    <view class='btnArr pos_zero'>
+      <view class='btn close_btn' bindtap='again'>重新支付</view>
+      <view class='btn back_btn' bindtap='back'>返回缴费中心</view>
+    </view>
+  </view>
+</view>
+
+<view class='rect' bindtap='closeInput' wx:if="{{isShow}}"></view>
+<view class='poup' wx:if="{{isShow}}">
+  <input bindinput='keyInput' class='nameInput Fourteen' placeholder='请输入您的真实姓名' ></input>
+  <text class='tips Twelve'>重要提示：确认后名称不可修改,请谨慎输入!</text>
+  <view class='s_btnArr Fifteen'>
+    <view class='s_btn' bindtap='closeInput' >取消</view>
+    <view class='s_btn border_left' bindtap='onConfirm' >确定</view>
+  </view>
+</view>
+

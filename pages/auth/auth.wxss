@@ -1,0 +1,57 @@
+/* pages/auth/auth.wxss */
+
+page{
+  background-color: gray;
+}
+
+.girl{
+  z-index: 99;
+  margin-left: 220rpx;
+  bottom: 410rpx;
+  position: absolute;
+  width: 270rpx;
+  height: 321rpx;
+}
+
+.img_auth {
+  width: 370rpx;
+  height: 340rpx;
+  position: absolute;
+  left: 179rpx;
+  top: -232rpx;
+}
+
+.content {
+  text-align: center;
+  background:white;
+  color:black;
+  font-size: 26rpx;
+  width: 690rpx;
+  margin-left: 30rpx;
+  position: absolute;
+  border-radius: 20rpx;
+  bottom: 50rpx;
+}
+
+.btn_auth {
+  color: white;
+  font-size: 35rpx;
+  height: 88rpx;
+  width: 588rpx;
+  line-height: 88rpx;
+  margin-top: 35rpx;
+  background-color: black;
+  margin-bottom: 35rpx;
+}
+
+.title {
+  padding-top: 126rpx;
+}
+
+.tip {
+  line-height: 3.5;
+  font-size: 24rpx;
+  border: 1px dashed #FF4967;
+  width: 588rpx;
+  margin: 30rpx 51rpx;
+}

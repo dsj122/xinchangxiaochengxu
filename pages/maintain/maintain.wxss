@@ -1,0 +1,26 @@
+/* pages/maintain/maintain.wxss */
+@import '../guarantee/guarantee.wxss';
+
+.pj_display{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  z-index: 10000;
+  font-size: 29rpx;
+}
+
+.pj_item{
+  padding: 40rpx 0;
+  width: 100%;
+  text-align: center;
+  border-bottom: 2rpx solid #EEEEEE;
+}
+
+.bottom_none{
+  border-bottom: none;
+}

@@ -1,0 +1,135 @@
+<!--pages/guarantee/guarantee.wxml-->
+<view class='all'>
+  <contactBtn></contactBtn>
+  <view class='list Fifteen'>
+    <view class='item'>
+      <view class='item_left'>
+        <text><text class='red'>*</text> 机型：</text>
+      </view>
+      <view class='pick_text' wx:if="{{info.model}}" bindtap='onShowPick' data-type='0'>{{info.model}}</view>
+      <view class='pick_text gray' wx:else bindtap='onShowPick' data-type='0'>请选择机型</view>
+      <view class='item_right'>
+        <image class='icon_arrow' mode='widthFix' src='/utils/image/a06.png'></image>
+      </view>
+    </view>
+    <view class='item'>
+      <view class='item_left'>
+        <text><text class='red'>*</text> 机身编号：</text>
+      </view>
+      <view class='pick_text' wx:if="{{info.number}}" bindtap='onShowPick' data-type='1'>{{info.number}}</view>
+      <view class='pick_text gray' wx:else bindtap='onShowPick' data-type='1'>请选择机身编号</view>
+      <view class='item_right'>
+        <image class='icon_arrow' mode='widthFix' src='/utils/image/a06.png'></image>
+      </view>
+    </view>
+    <view class='item'>
+      <view class='item_left'>
+        <text><text class='red'>*</text> 小时数：</text>
+      </view>
+      <input placeholder='请输入小时数' bindinput='hourInput' type='number' value='{{info.hour}}'></input>
+      <view class='item_right'>
+        <image class='icon_input' mode='widthFix' src='/utils/image/b01.png'></image>
+      </view>
+    </view>
+    <view class='item'>
+      <view class='item_left'>
+        <text><text class='red'>*</text> 省市：</text>
+      </view>
+      <view class='pick_text' wx:if="{{info.province_city}}" bindtap='onShowPick' data-type='2'>{{info.province_city}}</view>
+      <view class='pick_text gray' wx:else bindtap='onShowPick' data-type='2'>请选择省市</view>
+      <view class='item_right'>
+        <image class='icon_arrow' mode='widthFix' src='/utils/image/a06.png'></image>
+      </view>
+    </view>
+    <view class='item'>
+      <view class='item_left'>
+        <text><text class='red'>*</text> 详细地址：</text>
+      </view>
+      <input class='item_textarea' placeholder='请输入地点' bindinput='posInput' value='{{info.pos}}'></input>
+      <view class='item_right'>
+        <image class='icon_input' mode='widthFix' src='/utils/image/b01.png'></image>
+      </view>
+    </view>
+    <view class='item'>
+      <view class='item_left'>
+        <text><text class='red'>*</text> 联系人：</text>
+      </view>
+      <input placeholder='请输入姓名' bindinput='nameInput' value='{{info.name}}'></input>
+      <view class='item_right'>
+        <image class='icon_input' mode='widthFix' src='/utils/image/b01.png'></image>
+      </view>
+    </view>
+    <view class='item'>
+      <view class='item_left'>
+        <text><text class='red'>*</text> 联系电话：</text>
+      </view>
+      <input placeholder='请输入电话' bindinput='telInput' type='number' value='{{info.tel}}'></input>
+      <view class='item_right'>
+        <image class='icon_input' mode='widthFix' src='/utils/image/b01.png'></image>
+      </view>
+    </view>
+    <view class='item border_none'>
+      <view class='item_left'>
+        <text><text class='red'>*</text> 是否可以工作：</text>
+      </view>
+      <view class='item_work'>
+        <view class='center' bindtap='onWork' data-type='0'>
+          <image src="{{info.isWork?'/utils/image/b04.png':'/utils/image/b05.png'}}"></image>
+          <text>是</text>
+        </view>
+        <view class='center' bindtap='onWork' data-type='1'>
+          <image src="{{!info.isWork?'/utils/image/b04.png':'/utils/image/b05.png'}}"></image>
+          <text>否</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='desc Fifteen'>
+    <view class='item border_none'>
+      <view class='item_left'>
+        <text><text class='red'>*</text> 故障描述：</text>
+      </view>
+      <recorder bindshowAuth="showAuth" bindonAgain="onAgain" isShowAgain="{{true}}" setSrc="{{info.recorderurl}}" bindrecorderStop="recorderStop"></recorder>
+    </view>
+    <textarea wx:if="{{!isShow&&!isShowModel&&!isShowNumber && showtext}}" class='desc_input' value='{{info.desc}}' bindinput='descInput' placeholder='其他故障描述'></textarea>
+    <view class='item border_none padding_bottom'>
+      <view class='item_left'>
+        <text> 添加图片： （可添加8张图片）</text>
+        <view class='img_arr'>
+          <view wx:if="{{imglist}}" class="img_item" wx:for="{{imglist}}" wx:key="item" wx:index="index">
+            <image class='img_item_main' bindtap='onOpent' data-src='{{item}}' src='{{item}}'></image>
+            <image class='img_item_close' bindtap='imgClose' data-index='{{index}}' mode='widthFix' src='../../utils/image/b12.png'></image>
+          </view>
+          <view bindtap='chooseImg' wx:if="{{!imglist||imglist.length<8}}" class='img_none'>
+            <image src='../../utils/image/b08.png' mode='widthFix'></image>
+            <text>添加图片</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='item border_none'>
+      <view class='item_left'>
+        <text> 添加视频： （限60s内）</text>
+        <view class='video_display'>
+          <view bindtap='chooseVide' wx:if="{{!info.videourl}}" class='img_none'>
+            <image src='../../utils/image/b09.png' mode='widthFix'></image>
+            <text>添加视频</text>
+          </view>
+          <video wx:else class='img_item abs' src='{{info.videourl}}'>
+          </video>
+            <cover-image wx:if="{{info.videourl}}" class='img_item_close' bindtap='videoClose' data-index='{{index}}' mode='widthFix' src='../../utils/image/b12.png'></cover-image>
+        </view>
+      </view>
+    </view>
+    <!-- <view class='btn_sub' bindtap='checkAuth' disabled="{{true}}">提交</view> -->
+    <button class='btn_sub' bindtap='checkAuth' disabled="{{subtn}}">提交</button>
+  </view>
+</view>
+
+<diy_picker inputText="请填写机型" isShowNotFound="{{shownotFound}}" isShowPicker="{{isShowModel}}" bindsure="sure_model" bindcancle="cancl_model" scrollType="normal" listData="{{app_info.model}}" titleText="请选择机型" rectBottom=" bottom:220rpx;" bindconfirm='modelConfirm'></diy_picker>
+
+<diy_picker inputText="请填写机身编号" isShowNotFound="{{shownotFound}}" isShowPicker="{{isShowNumber}}" bindsure="sure_number" bindcancle="cancl_number" scrollType="normal" listData="{{app_info.number}}" titleText="请选择机身编号" rectBottom=" bottom:220rpx;" bindconfirm='numberConfirm'></diy_picker>
+
+<diy_picker isShowPicker="{{isShowCity}}" keyWordsOfShow="name" defaultPickData="{{city}}" bindsure="sure_city" bindcancle="cancl_city" scrollType="link" listData="{{cityListData}}" titleText="请选择地址"></diy_picker>
+
+<authPopup isShow="{{isShowAuth}}" bindhideAuth="hideAuth"></authPopup>

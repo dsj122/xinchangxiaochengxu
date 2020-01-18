@@ -1,0 +1,9 @@
+<!--utils/components/contactBtn/contactBtn.wxml-->
+<view class='btn' catchtouchmove='move' style='bottom:{{contactB}}px;right:{{contactR}}px ' >
+  <image class='bg' src='/utils/image/b03.png'></image>
+  <view class='middle'>
+    <image class='icon' src='/utils/image/b02.png' mode='widthFix' ></image>
+    <text>客服</text>
+  </view>
+  <button open-type='contact' class='contact' ></button>
+</view>

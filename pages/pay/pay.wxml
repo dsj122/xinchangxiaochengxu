@@ -1,0 +1,107 @@
+<!--pages/pay/pay.wxml-->
+<wxs module="filters" src="../../utils/components/filters.wxs"></wxs>
+
+<tabbar id='tabbar'></tabbar>
+<view class='all'>
+  <view class='top Fifteen'>
+    <view class='top_arr'>
+      <view class='top_item' bindtap='changeType' data-item='{{item}}' wx:for="{{payTypeArr}}" wx:key="item" wx:index="index">
+        <text class="{{item.id==payType?'bold yellow':''}}">{{item.name}}</text>
+        <view wx:if="{{item.id==payType}}" class='top_item_pick'></view>
+        <view wx:else class='top_item_no'></view>
+      </view>
+    </view>
+    <image class='nav_icon' bindtap='changeIsShow' data-index='0' mode='widthFix' src='../../utils/image/xind01.png'></image>
+  </view>
+  <view class='type' wx:if="{{isShow}}">
+    <view class='type_all'>
+      <view class='type_title'>
+        <text class='Fifteen'>缴费类型</text>
+        <image class='type_title_close' bindtap='changeIsShow' data-index='1' mode='widthFix' src='../../utils/image/login_a12.png'></image>
+      </view>
+      <view class='type_Arr'>
+        <view class="{{moneyType==index?'type_item Thirteen type_item_pick':'type_item Thirteen'}}" bindtap='changeShowType' data-type='{{index}}' wx:for="{{moneyTypeArr}}" wx:key="item" wx:index="index">
+          <text class="{{moneyType==index?'bold':''}}">{{item.name}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='rect' wx:if="{{isShow}}" bindtap='changeIsShow' data-index='1' catchtouchmove='true'></view>
+  <view class='date Thirteen'>
+    <view bindtap='showPick'>
+      <image class='date_icon' mode='widthFix' src='../../utils/image/xind02.png'></image>
+      <text wx:if="{{date}}">{{date}}</text>
+      <text wx:else>选择日期</text>
+      <image class="date_icon_down" src="../../utils/image/timedown.png"></image>
+      <!-- <text wx:if="{{date.length == 0}}">{{createddate}}</text> -->
+      <!-- <text wx:else>2{{date[0]<100?'0'+date[0]:date[0]}}年{{date[1]+1}}月</text> -->
+    </view>
+    <view wx:if="{{datetophp}}">
+      共{{total_num}}笔成交，缴费
+      <text class='red'>¥{{total_price}}</text>
+    </view>
+    <view wx:else>
+      <text class='red'>  </text>
+    </view>
+  </view>
+  <view class='list'>
+    <view class='item' wx:for="{{list}}" wx:key="item" wx:index="index">
+      <view class='item_top Thirteen bold'>
+        <image class='item_top_img' src='../../utils/image/xind07.png' mode='widthFix'></image>
+        <view class='item_top_row Thirteen white'>
+          <text wx:if="{{item.pay_status==1}}">待付款</text>
+          <text wx:elif="{{item.pay_status==2}}">已付款</text>
+          <text wx:elif="{{item.pay_status==3}}">已关闭</text>
+          <text wx:elif="{{item.pay_status==4}}">已拒绝</text>
+
+          <image wx:if="{{item.pay_status==1}}" src='/utils/image/xind04.png' mode='widthFix'></image>
+          <image wx:elif="{{item.pay_status==2}}" src='/utils/image/xind03.png' mode='widthFix'></image>
+          <image wx:elif="{{item.pay_status==3}}" src='/utils/image/xind05.png' mode='widthFix'></image>
+          <image wx:elif="{{item.pay_status==4}}" src='/utils/image/xind06.png' mode='widthFix'></image>
+        </view>
+      </view>
+      <view class='item_bottom'>
+        <view class='item_bottom_all'>
+          <view class='item_money'>
+            <text class='Twelve'>付款金额</text>
+            <text class='red Twenty bold'>¥{{filters.toFix(item.price)}}</text>
+          </view>
+          <view class='item_info'>
+            <view class='item_info_item'>
+              <text class='gray'>省份：</text>
+              <text>{{item.province}}</text>
+            </view>
+            <view class='item_info_item'>
+              <text class='gray'>收款公司：</text>
+              <text>{{item.company}}</text>
+            </view>
+            <view class='item_info_item'>
+              <text class='gray'>款项类别：</text>
+              <text>{{item.category_name}}</text>
+            </view>
+            <view class='item_info_item'>
+              <text class='gray'>发票抬头：</text>
+              <text>{{item.tax_header}}</text>
+            </view>
+          </view>
+          <view class='item_time gray Twelve'>
+            <view>
+              <text>创建时间：{{item.create_time}}</text>
+            </view>
+            <view>
+              <text wx:if="{{item.pay_status==2}}">付款时间：{{item.pay_time}}</text>
+            </view>
+          </view>
+          <view class='row' wx:if="{{item.pay_status==1}}">
+            <view class='item_btnArr'>
+              <view bindtap='closePay' data-item='{{item}}' class='btn bold close_btn'>关闭交易</view>
+              <view bindtap='toPay' data-item='{{item}}' class='btn bold pay_btn'>去付款</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<diy_picker isTime="{{true}}" hideDay="{{true}}" isShowPicker="{{isShowPick}}" keyWordsOfShow="name" defaultPickData="{{defaultPickData}}" bindsure="sure" bindcancle="cancl" scrollType="link" titleText="请选择时间" isShowNotFound="{{fal}}"></diy_picker>
